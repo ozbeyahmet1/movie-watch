@@ -27,6 +27,7 @@
     "@chromatic-com/storybook": "^3.2.2",
     "@commitlint/cli": "^18.4.2",
     "@commitlint/config-conventional": "^18.4.2",
+    "@reduxjs/toolkit": "^2.3.0",
     "@storybook/addon-essentials": "^8.4.1",
     "@storybook/addon-interactions": "^8.4.1",
     "@storybook/addon-onboarding": "^8.4.1",
@@ -52,6 +53,8 @@
     "husky": "^8.0.3",
     "postcss": "^8",
     "prettier": "latest",
+    "react-redux": "^9.1.2",
+    "redux": "^5.0.1",
     "storybook": "^8.4.1",
     "tailwindcss": "^3.4.1",
     "typescript": "^5"
