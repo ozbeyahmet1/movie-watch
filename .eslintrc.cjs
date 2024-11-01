@@ -15,6 +15,7 @@ module.exports = {
     "plugin:import/recommended",
     "plugin:import/typescript",
     "next",
+    "plugin:storybook/recommended"
   ],
   rules: {
     "react/jsx-uses-react": "off",
