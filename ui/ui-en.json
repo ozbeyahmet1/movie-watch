@@ -1,0 +1,27 @@
+{
+  "header": {
+    "nav": [
+      {
+        "name": "Home",
+        "url": "/"
+      },
+      {
+        "name": "Movie",
+        "url": "/movie"
+      },
+      {
+        "name": "TV Show",
+        "url": "/tv-show"
+      },
+      {
+        "name": "Web Series",
+        "url": "/web-series"
+      },
+      {
+        "name": "Premium",
+        "url": "/premium"
+      }
+    ],
+    "authButton": "Sign In"
+  }
+}
