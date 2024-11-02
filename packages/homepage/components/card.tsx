@@ -1,9 +1,11 @@
 import { Movie } from "@/helpers/interfaces/movie";
+import { addToFavorites, removeFromFavorites } from "@/store/slices/favoritesSlice";
+import { RootState } from "@/store/state";
 import { cva } from "class-variance-authority";
 import Image from "next/image";
 import { FaStar } from "react-icons/fa";
 import { IoMdTime } from "react-icons/io";
-
+import { useDispatch, useSelector } from "react-redux";
 const cardStyles = cva("mb-4 w-full", {
   variants: {
     size: {
@@ -19,20 +21,32 @@ interface CardProps extends Movie {
   size?: "large" | "small";
 }
 
-export default function Card({ Poster, Title, Type, Year, size = "large" }: CardProps) {
+export default function Card({ Poster, Title, Type, Year, size = "large", imdbID }: CardProps) {
+  const dispatch = useDispatch();
+  const favorites = useSelector((state: RootState) => state.favoritesReducer.favorites);
+
+  const handleAddFavorite = (item: string) => {
+    dispatch(addToFavorites(item));
+  };
+
+  const handleRemoveFavorite = (item: string) => {
+    dispatch(removeFromFavorites(item));
+  };
   return (
     <div>
-      <Image
-        src={
-          Poster !== "N/A"
-            ? Poster
-            : "https://res.cloudinary.com/droheqpxn/image/upload/v1730522656/660px-No-Image-Placeholder.svg_qofdqq.png"
-        }
-        width={250}
-        height={360}
-        alt=""
-        className={cardStyles({ size })}
-      />
+      <a href={`/movie/${imdbID}`}>
+        <Image
+          src={
+            Poster !== "N/A"
+              ? Poster
+              : "https://res.cloudinary.com/droheqpxn/image/upload/v1730522656/660px-No-Image-Placeholder.svg_qofdqq.png"
+          }
+          width={250}
+          height={360}
+          alt=""
+          className={cardStyles({ size })}
+        />
+      </a>
       {size === "large" && (
         <div>
           <div className="flex items-start justify-between mb-4 h-12">
@@ -52,7 +66,10 @@ export default function Card({ Poster, Title, Type, Year, size = "large" }: Card
                 stroke="#B0DC00"
                 strokeWidth={25}
                 fill="transparent"
-                className="cursor-pointer hover:fill-lime duration-300"
+                className={`cursor-pointer hover:fill-lime duration-300 ${favorites.includes(imdbID) ? "fill-lime" : ""}`}
+                onClick={() => {
+                  favorites.includes(imdbID) ? handleRemoveFavorite(imdbID) : handleAddFavorite(imdbID);
+                }}
               />
             </div>
           </div>

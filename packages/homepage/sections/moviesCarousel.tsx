@@ -11,8 +11,8 @@ import Card from "../components/card";
 const carouselItemStyles = cva("ml-5 first:ml-0", {
   variants: {
     size: {
-      large: "md:basis-1/2 lg:basis-1/5", // Styles for large items
-      small: "md:basis-1/3 lg:basis-[14%]", // Styles for small items
+      large: "basis-[75%] lg:basis-1/5", // Styles for large items
+      small: "basis-1/2 lg:basis-[14%]", // Styles for small items
     },
   },
   defaultVariants: {

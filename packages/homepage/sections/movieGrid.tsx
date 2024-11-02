@@ -42,7 +42,7 @@ export default function MovieGrid(): JSX.Element {
 
   return (
     <div className="w-full">
-      <div className="w-2/3 flex items-center space-x-4 mb-6">
+      <div className="w-full lg:w-2/3 flex items-center space-x-4 mb-6">
         <input
           type="text"
           className="w-full h-10 rounded-md border-lime border-2 border-solid bg-transparent outline-none focus:outline-none px-5 placeholder:text-[#ffffff92]"
@@ -60,7 +60,7 @@ export default function MovieGrid(): JSX.Element {
         </button>
       </div>
       {totalResults && totalResults.length > 0 ? (
-        <div className="grid grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
           {movies.map((movie) => (
             <Card key={movie.imdbID} {...movie} />
           ))}

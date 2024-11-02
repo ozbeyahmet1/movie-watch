@@ -10,7 +10,7 @@ export default function HomepageView() {
   return (
     <div className="min-h-screen w-full">
       <HeroSection />
-      <div className="px-10 py-28">
+      <div className="px-6 lg:px-10 py-12 lg:py-28">
         <div className="pb-6">
           <h2 className="text-lime text-2xl mb-3">Online Streaming</h2>
           <h3 className="text-3xl">Upcoming Movies</h3>
