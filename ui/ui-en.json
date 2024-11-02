@@ -1,0 +1,41 @@
+{
+  "header": {
+    "nav": [
+      {
+        "name": "Home",
+        "url": "/"
+      },
+      {
+        "name": "Movie",
+        "url": "/movie"
+      },
+      {
+        "name": "TV Show",
+        "url": "/tv-show"
+      },
+      {
+        "name": "Web Series",
+        "url": "/web-series"
+      },
+      {
+        "name": "Premium",
+        "url": "/premium"
+      }
+    ],
+    "authButton": "Sign In"
+  },
+  "sections": {
+    "hero": {
+      "banner": {
+        "text1": "Unlimited",
+        "text2": "Entertainment",
+        "text3": "Movies, TVs shows, & More."
+      },
+      "movieButton": "Movie",
+      "qualityButton": "HD",
+      "categoryButton": "Action,Drama",
+      "yearButton": "2023",
+      "playButton": "Play Now"
+    }
+  }
+}
