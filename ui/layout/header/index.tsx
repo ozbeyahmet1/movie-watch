@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import { BiWorld } from "react-icons/bi";
 import { IoIosSearch } from "react-icons/io";
 import data from "../../ui-en.json";
@@ -28,8 +30,30 @@ interface HeaderItem {
  * @returns {JSX.Element} The rendered header component
  */
 export default function Header(): JSX.Element {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Cleanup event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="fixed top-0 p-4 lg:p-10 w-full flex items-center justify-between">
+    <header
+      className={`fixed z-[9999] top-0 p-4 lg:p-10 w-full flex items-center justify-between transition-colors duration-300 ${
+        isScrolled ? "bg-black bg-opacity-80" : "bg-transparent"
+      }`}>
       <Logo />
 
       {/* Navigation links for large screens */}

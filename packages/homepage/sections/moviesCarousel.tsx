@@ -1,6 +1,6 @@
 import { Movie } from "@/helpers/interfaces/movie";
 
-import { Carousel, CarouselContent, CarouselItem } from "@/lib/components/carousel";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/ui/carousel";
 import { cva } from "class-variance-authority";
 import Card from "../components/card";
 
