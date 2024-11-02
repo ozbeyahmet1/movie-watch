@@ -6,12 +6,16 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./stories/**/*.{js,ts,jsx,tsx,mdx}",
+    "./packages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./ui/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        lime: "#B0DC00",
+      },
+      backgroundImage: {
+        hero: "url('https://res.cloudinary.com/droheqpxn/image/upload/v1730496495/movie-watch/asda_bbmwgz.png')",
       },
     },
   },
