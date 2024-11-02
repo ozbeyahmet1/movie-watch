@@ -22,7 +22,17 @@ interface CardProps extends Movie {
 export default function Card({ Poster, Title, Type, Year, size = "large" }: CardProps) {
   return (
     <div>
-      <Image src={Poster} width={250} height={360} alt="" className={cardStyles({ size })} />
+      <Image
+        src={
+          Poster !== "N/A"
+            ? Poster
+            : "https://res.cloudinary.com/droheqpxn/image/upload/v1730522656/660px-No-Image-Placeholder.svg_qofdqq.png"
+        }
+        width={250}
+        height={360}
+        alt=""
+        className={cardStyles({ size })}
+      />
       {size === "large" && (
         <div>
           <div className="flex items-start justify-between mb-4 h-12">

@@ -1,6 +1,7 @@
 "use client";
 import useFetchMovies from "@/helpers/hooks/useFetchMovies";
 import HeroSection from "./sections/heroSection";
+import MovieGrid from "./sections/movieGrid";
 import { MovieCarousel } from "./sections/moviesCarousel";
 
 export default function HomepageView() {
@@ -17,6 +18,9 @@ export default function HomepageView() {
         <MovieCarousel movies={movies} size="large" />
         <div className="mt-24">
           <MovieCarousel movies={generalMovies} size="small" />
+        </div>
+        <div className="mt-20">
+          <MovieGrid />
         </div>
       </div>
     </div>

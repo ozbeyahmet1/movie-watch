@@ -26,7 +26,7 @@ const useFetchMovies = (query: string) => {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-
+  const [totalResults, setTotalResults] = useState<string | null>(null);
   useEffect(() => {
     // Do not proceed if the title is empty
 
@@ -44,6 +44,7 @@ const useFetchMovies = (query: string) => {
 
         if (data.Response === "True") {
           setMovies(data.Search);
+          setTotalResults(data.totalResults);
           setError(null);
         } else {
           setError(data.Error || "Movies not found");
@@ -61,7 +62,7 @@ const useFetchMovies = (query: string) => {
     fetchMovies();
   }, [query]);
 
-  return { movies, loading, error };
+  return { movies, loading, error, totalResults };
 };
 
 export default useFetchMovies;
