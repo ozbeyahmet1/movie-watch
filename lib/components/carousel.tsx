@@ -4,8 +4,8 @@ import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import * as React from "react";
 
-import { Button } from "@/lib/components/button";
 import { cn } from "@/lib/utils";
+import { Button } from "./button";
 
 type CarouselApi = UseEmblaCarouselType[1];
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
@@ -52,13 +52,13 @@ const Carousel = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivEl
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);
     const [canScrollNext, setCanScrollNext] = React.useState(false);
 
-    const onSelect = React.useCallback((apis: CarouselApi) => {
-      if (!apis) {
+    const onSelect = React.useCallback((api: CarouselApi) => {
+      if (!api) {
         return;
       }
 
-      setCanScrollPrev(apis.canScrollPrev());
-      setCanScrollNext(apis.canScrollNext());
+      setCanScrollPrev(api.canScrollPrev());
+      setCanScrollNext(api.canScrollNext());
     }, []);
 
     const scrollPrev = React.useCallback(() => {
