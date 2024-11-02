@@ -3,14 +3,36 @@ import { BiWorld } from "react-icons/bi";
 import { IoIosSearch } from "react-icons/io";
 import data from "../../ui-en.json";
 import Logo from "../logo";
+
+/**
+ * Interface for navigation items in the header.
+ * @interface
+ */
 interface HeaderItem {
+  /**
+   * @property {string} name - The display name of the navigation item.
+   */
   name: string;
+
+  /**
+   * @property {string} url - The URL to navigate to when the item is clicked.
+   */
   url: string;
 }
-export default function Header() {
+
+/**
+ * Header component that includes the site logo, navigation links,
+ * a search icon, language selection, and a sign-in button.
+ *
+ * @component
+ * @returns {JSX.Element} The rendered header component
+ */
+export default function Header(): JSX.Element {
   return (
     <header className="fixed top-0 p-4 lg:p-10 w-full flex items-center justify-between">
       <Logo />
+
+      {/* Navigation links for large screens */}
       <nav className="items-center space-x-4 divide-x-[1px] divide-white hidden lg:flex">
         {data.header.nav.map((item: HeaderItem) => (
           <Link key={item.name} href={item.url} className="px-5 uppercase hover:text-lime duration-300 cursor-pointer">
@@ -18,18 +40,20 @@ export default function Header() {
           </Link>
         ))}
       </nav>
+
       <div className="flex items-center">
+        {/* Search and language selector */}
         <div className="flex items-center divide-x-[1px]">
           <div className="px-3">
             <IoIosSearch />
           </div>
           <div className="flex items-center space-x-2 px-3">
-            <p>
-              <BiWorld fill="#B0DC00" />
-            </p>
+            <BiWorld fill="#B0DC00" />
             <p>EN</p>
           </div>
         </div>
+
+        {/* Sign In button */}
         <button className="uppercase px-3 border-lime border-[1px] border-solid rounded-full hover:bg-lime hover:text-black duration-300">
           Sign In
         </button>
