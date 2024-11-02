@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .storybook-page {
   margin: 0 auto;
   padding: 48px 20px;
