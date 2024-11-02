@@ -1,10 +1,10 @@
 "use client";
-
+/* eslint-disable */
 import { ArrowLeftIcon, ArrowRightIcon } from "@radix-ui/react-icons";
 import useEmblaCarousel, { type UseEmblaCarouselType } from "embla-carousel-react";
 import * as React from "react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/lib/components/button";
 import { cn } from "@/lib/utils";
 
 type CarouselApi = UseEmblaCarouselType[1];
